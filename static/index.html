@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>FastAPI Task Demo</title>
+  <style>
+    body{font-family:system-ui,Segoe UI,Arial;margin:24px}
+    button{margin:6px;padding:8px 12px}
+    pre{background:#f5f5f5;padding:12px;border-radius:6px;white-space:pre-wrap}
+  </style>
+</head>
+<body>
+  <h1>FastAPI Task Demo</h1>
+  <div>
+    <input id="title" placeholder="Titre de la tâche" style="padding:6px;min-width:260px"/>
+    <button id="add">Ajouter tâche</button>
+    <button id="list">Lister tâches</button>
+  </div>
+  <pre id="out">Sortie ici...</pre>
+
+  <script>
+    async function addTask() {
+      const title = document.getElementById('title').value || 'Tâche depuis frontend';
+      const res = await fetch('/tasks', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ title, completed: false })
+      });
+      const data = await res.json();
+      document.getElementById('out').textContent = JSON.stringify(data, null, 2);
+    }
+    async function listTasks() {
+      const res = await fetch('/tasks');
+      const data = await res.json();
+      document.getElementById('out').textContent = JSON.stringify(data, null, 2);
+    }
+    document.getElementById('add').onclick = addTask;
+    document.getElementById('list').onclick = listTasks;
+  </script>
+</body>
+</html>
+
