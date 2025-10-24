@@ -44,13 +44,14 @@ static/index.html
 
 🔹 Example Requests : 
     # List tasks
-curl http://127.0.0.1:8000/tasks
+curl [http://127.0.0.1:8000/tasks](http://127.0.0.1:8000/tasks)
 
 # Add a task
-curl -X POST "http://127.0.0.1:8000/tasks" \
+curl -X POST "[http://127.0.0.1:8000/tasks](http://127.0.0.1:8000/tasks)" \
      -H "Content-Type: application/json" \
      -d '{"title":"My first task","completed":false}'
 
 🔹 About
 
 This project is designed to showcase my Backend development skills (Python/FastAPI) and serves as a portfolio example.
+
