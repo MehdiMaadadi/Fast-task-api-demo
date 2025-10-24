@@ -47,12 +47,13 @@ static/index.html
 curl https://fast-task-api-demo-3.onrender.com/static/index.html
 
 # Add a task
-curl -X POST "https://fast-task-api-demo-3.onrender.com/static/index.html\
+curl -X POST "https://fast-task-api-demo-3.onrender.com/static/index.html
      -H "Content-Type: application/json" \
      -d '{"title":"My first task","completed":false}'
 
 🔹 About
 
 This project is designed to showcase my Backend development skills (Python/FastAPI) and serves as a portfolio example.
+
 
 
